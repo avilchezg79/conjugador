@@ -62,15 +62,15 @@ st.write('Seleccionaste', base)
 
 ## seleccion del tiempo
 tiempo = st.selectbox(
-    'Elige un tiempo gramatical en quechua', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado', 'pasado no experimentado'))
+    'Seleccione un tiempo gramatical en quechua', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado', 'pasado no experimentado'))
 
 ## seleccion del nro
 numero = st.selectbox(
-    'Seleccione un nÃºmero gramatical en quechua', ('singular', 'plural'))
+    'Seleccione un numero gramatical en quechua', ('singular', 'plural'))
 
 ## seleccion de la persona
 persona = st.selectbox(
     'Seleccione una persona gramatical en quechua', ('primera', 'segunda', 'tercera', 'cuarta (primera exclusiva)'))
 
-st.write('El verbo conjugado es', pronombre(tiempo, numero, persona))
+st.write('El verbo conjugado es', pronombre(tiempo, numero, persona), conjuga(tiempo, numero, persona))
 
