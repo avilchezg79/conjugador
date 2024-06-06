@@ -55,6 +55,9 @@ dict_que_esp = dict(zip(quechua, espanol))
 ## importar streamlit
 import streamlit as st
 
+## titulo
+st.title('Conjugador de verbos en quechua')
+
 ##seleccion de la base
 base = st.selectbox(
     'Seleccione un verbo en quechua', quechua)
@@ -72,7 +75,7 @@ numero = st.selectbox(
 persona = st.selectbox(
     'Seleccione una persona gramatical en quechua', ('primera', 'segunda', 'tercera', 'cuarta'))
 
-if numero == 'plural' and persona == 'cuarta':
+if numero == 'singular' and persona == 'cuarta':
     st.write('No existe la cuarta persona (primera exclusiva) en quechua')
 else:
     st.write('El verbo conjugado es', pronombre(tiempo, numero, persona), conjuga(base, tiempo, numero, persona))
