@@ -70,7 +70,7 @@ numero = st.selectbox(
 
 ## seleccion de la persona
 persona = st.selectbox(
-    'Seleccione una persona gramatical en quechua', ('primera', 'segunda', 'tercera', 'cuarta (primera exclusiva)'))
+    'Seleccione una persona gramatical en quechua', ('primera', 'segunda', 'tercera', 'cuarta'))
 
 st.write('El verbo conjugado es', pronombre(tiempo, numero, persona), conjuga(base, tiempo, numero, persona))
 
