@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 ## importar
 import pandas as pd
 verbos = pd.read_excel('verbos.xlsx')
@@ -10,7 +11,7 @@ verbos = pd.read_excel('verbos.xlsx')
 tiyay = pd.ExcelFile('tiyay.xlsx')
 
 ## Diccionario para los pronombres
-## Creo un ciclo for que lea solo la hoja en la que coloquÈ los pronombres y la convierta a diccionario
+## Creo un ciclo for que lea solo la hoja en la que coloqu√© los pronombres y la convierta a diccionario
 
 P = {}
 
@@ -30,14 +31,14 @@ for hoja in tiyay.sheet_names:
   d = df.to_dict()
   D[hoja] = d
 
-## FunciÛn para conjugar la base
-## Se llegar· al sufijo "abriendo" las distintas entradas en el orden seg˙n el que aparecen en el diccionario (tiempo > nro > persona)
+## Funci√≥n para conjugar la base
+## Se llegar√° al sufijo "abriendo" las distintas entradas en el orden seg√∫n el que aparecen en el diccionario (tiempo > nro > persona)
 
 def conjuga(base, tiempo, numero, persona):
     return base + D[tiempo][numero][persona]
 
-## FunciÛn para agregar el pronombre
-## Sigue la misma lÛgica que la funciÛn anterior
+## Funci√≥n para agregar el pronombre
+## Sigue la misma l√≥gica que la funci√≥n anterior
 
 def pronombre(tiempo, numero, persona):
     return P[tiempo][numero][persona]
@@ -47,7 +48,7 @@ def pronombre(tiempo, numero, persona):
 
 ## diccionario
 quechua = list(verbos['quechua'])
-espanol = list(verbos['espa√±ol'])
+espanol = list(verbos['espanol'])
 
 dict_que_esp = dict(zip(quechua, espanol))
 
@@ -65,7 +66,7 @@ tiempo = st.selectbox(
 
 ## seleccion del nro
 numero = st.selectbox(
-    'Seleccione un n√∫mero gramatical en quechua', ('singular', 'plural'))
+    'Seleccione un n√É¬∫mero gramatical en quechua', ('singular', 'plural'))
 
 ## seleccion de la persona
 persona = st.selectbox(
