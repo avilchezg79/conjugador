@@ -18,7 +18,7 @@ st.write('Seleccionaste', option)
 
 ## selección del tiempo
 tiempo = st.selectbox(
-    'Seleccione un tiempo gramatical en quechua', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado', 'pasado no experimentado'))
+    'Elige un tiempo gramatical en quechua', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado', 'pasado no experimentado'))
 
 ## selección del nro
 numero = st.selectbox(
