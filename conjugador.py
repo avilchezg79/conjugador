@@ -72,5 +72,12 @@ numero = st.selectbox(
 persona = st.selectbox(
     'Seleccione una persona gramatical en quechua', ('primera', 'segunda', 'tercera', 'cuarta'))
 
-st.write('El verbo conjugado es', pronombre(tiempo, numero, persona), conjuga(base, tiempo, numero, persona))
+if numero == 'plural' and persona == 'cuarta':
+    st.write('No existe la cuarta persona (primera exclusiva) en quechua')
+else:
+    st.write('El verbo conjugado es', pronombre(tiempo, numero, persona), conjuga(base, tiempo, numero, persona))
+
+ 
+
+
 
