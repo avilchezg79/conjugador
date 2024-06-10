@@ -50,8 +50,7 @@ def pronombre(tiempo, numero, persona):
 quechua = list(verbos['quechua'])
 espanol = list(verbos['espanol'])
 
-dict_que_esp = dict(zip(quechua, espanol))
-print(dict_que_esp)
+dict_que_esp = dict(zip(quechua, espanol)) ## diccionario del excel 'verbos'
 
 ## importar streamlit
 import streamlit as st
@@ -63,7 +62,8 @@ st.title(':rainbow[Conjugador de verbos en quechua]')
 base = st.selectbox(
     'Seleccione un verbo en quechua', quechua)
 st.write('Seleccionaste', base)
-st.write('En español es') ##
+
+st.write('En español es', dict_que_esp[base]) ##
 
 ## seleccion del tiempo
 tiempo = st.selectbox(
