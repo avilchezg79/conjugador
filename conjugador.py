@@ -60,7 +60,7 @@ st.title('Conjugador de verbos en quechua')
 
 ##seleccion de la base
 base = st.selectbox(
-    'Seleccione un verbo en quechua', quechua)
+    ':blue[Seleccione un verbo en quechua]', quechua)
 st.write('Seleccionaste', base)
 
 ## seleccion del tiempo
