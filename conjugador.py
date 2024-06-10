@@ -35,6 +35,7 @@ for hoja in tiyay.sheet_names:
 ## Se llegará al sufijo "abriendo" las distintas entradas en el orden según el que aparecen en el diccionario (tiempo > nro > persona)
 
 def conjuga(base, tiempo, numero, persona):
+    base = base[:-1]
     return base + D[tiempo][numero][persona]
 
 ## Función para agregar el pronombre
@@ -81,6 +82,4 @@ else:
     st.write('El verbo conjugado es', pronombre(tiempo, numero, persona), conjuga(base, tiempo, numero, persona))
     ## st.write('En español quiere decir')
  
-
-
 
