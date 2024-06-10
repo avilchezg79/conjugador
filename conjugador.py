@@ -65,21 +65,21 @@ st.write('Seleccionaste ' + base + ', que en español es "' + dict_que_esp[base]
 
 ## seleccion del tiempo
 tiempo = st.selectbox(
-    'Seleccione un tiempo gramatical en quechua', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado', 'pasado no experimentado'))
+    ':red[Seleccione un tiempo gramatical en quechua]', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado', 'pasado no experimentado'))
 
 ## seleccion del nro
 numero = st.selectbox(
-    'Seleccione un numero gramatical en quechua', ('singular', 'plural'))
+    ':green[Seleccione un numero gramatical en quechua]', ('singular', 'plural'))
 
 ## seleccion de la persona
 persona = st.selectbox(
-    'Seleccione una persona gramatical en quechua', ('primera', 'segunda', 'tercera', 'cuarta'))
+    ':blue[Seleccione una persona gramatical en quechua]', ('primera', 'segunda', 'tercera', 'cuarta'))
 
 if numero == 'singular' and persona == 'cuarta':
     st.write('No existe la cuarta persona (primera exclusiva) en quechua')
 else:
     st.write('El verbo conjugado es', pronombre(tiempo, numero, persona), conjuga(base, tiempo, numero, persona))
-    st.write('En español quiere decir') ##
+    ## st.write('En español quiere decir')
  
 
 
