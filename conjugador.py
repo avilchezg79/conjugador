@@ -51,6 +51,7 @@ quechua = list(verbos['quechua'])
 espanol = list(verbos['espanol'])
 
 dict_que_esp = dict(zip(quechua, espanol))
+print(dict_que_esp)
 
 ## importar streamlit
 import streamlit as st
@@ -62,6 +63,7 @@ st.title(':rainbow[Conjugador de verbos en quechua]')
 base = st.selectbox(
     'Seleccione un verbo en quechua', quechua)
 st.write('Seleccionaste', base)
+st.write('En español es') ##
 
 ## seleccion del tiempo
 tiempo = st.selectbox(
@@ -79,7 +81,7 @@ if numero == 'singular' and persona == 'cuarta':
     st.write('No existe la cuarta persona (primera exclusiva) en quechua')
 else:
     st.write('El verbo conjugado es', pronombre(tiempo, numero, persona), conjuga(base, tiempo, numero, persona))
-
+    st.write('En español quiere decir') ##
  
 
 
