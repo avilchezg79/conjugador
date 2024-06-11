@@ -67,7 +67,6 @@ st.write('**Juega con las distintas maneras de conjugar verbos en quechua y cono
 base = st.selectbox(
     ':violet[Selecciona un verbo en quechua]', quechua)
 st.write('Seleccionaste ' + base + ', que en español es "' + dict_que_esp[base] + '".')
-st.image(base.jpg)
 
 ## seleccion del tiempo
 tiempo = st.selectbox(
