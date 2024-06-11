@@ -63,10 +63,15 @@ import streamlit as st
 st.title(':rainbow[Conjugador de verbos en quechua]')
 st.write('**Juega con las distintas maneras de conjugar verbos en quechua y conoce más sobre su morfología** ✏️')
 
-##seleccion de la base
+## seleccion de la base
 base = st.selectbox(
     ':violet[Selecciona un verbo en quechua]', quechua)
 st.write('Seleccionaste ' + base + ', que en español es "' + dict_que_esp[base] + '".')
+
+## imagenes
+imagenes = {'tiyay': 'tiyay.jpg', 'mikuy': 'mikuy.jpg', 'puri': 'puri.jpg', 'tusuy': 'tusuy.jpg'}
+imagen_seleccionada = imagenes[base]
+st.image(imagen_seleccionada)
 
 ## seleccion del tiempo
 tiempo = st.selectbox(
