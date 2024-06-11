@@ -61,6 +61,7 @@ import streamlit as st
 
 ## titulo
 st.title(':rainbow[Conjugador de verbos en quechua]')
+st.write('**Juega con las distintas maneras de conjugar verbos en quechua y conoce más sobre su morfología** ✏️')
 
 ##seleccion de la base
 base = st.selectbox(
