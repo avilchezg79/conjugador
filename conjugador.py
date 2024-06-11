@@ -71,6 +71,9 @@ st.write('Seleccionaste ' + base + ', que en español es "' + dict_que_esp[base]
 tiempo = st.selectbox(
     ':red[Seleccione un tiempo gramatical en quechua]', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado simple', 'pasado experimentado progresivo', 'pasado experimentado habitual', 'pasado no experimentado simple', 'pasado no exp. progresivo', 'pasado no exp. habitual'))
 
+with st.popover("Open popover"):
+    st.markdown("Hello World 👋")
+
 ## seleccion del nro
 numero = st.selectbox(
     ':green[Seleccione un numero gramatical en quechua]', ('singular', 'plural'))
