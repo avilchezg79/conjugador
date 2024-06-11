@@ -34,8 +34,11 @@ for hoja in tiyay.sheet_names:
 ## Función para conjugar la base
 ## Se llegará al sufijo "abriendo" las distintas entradas en el orden según el que aparecen en el diccionario (tiempo > nro > persona)
 
+vocales = ['a', 'i', 'u']
+
 def conjuga(base, tiempo, numero, persona):
-    base = base[:-1]
+    if base[-1] not in vocales:
+      base = base[:-1]
     return base + D[tiempo][numero][persona]
 
 ## Función para agregar el pronombre
@@ -66,7 +69,7 @@ st.write('Seleccionaste ' + base + ', que en español es "' + dict_que_esp[base]
 
 ## seleccion del tiempo
 tiempo = st.selectbox(
-    ':red[Seleccione un tiempo gramatical en quechua]', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado', 'pasado no experimentado'))
+    ':red[Seleccione un tiempo gramatical en quechua]', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado simple', 'pasado experimentado progresivo', 'pasado experimentado habitual', 'pasado no experimentado simple', 'pasado no exp. progresivo', 'pasado no exp. habitual'))
 
 ## seleccion del nro
 numero = st.selectbox(
