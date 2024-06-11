@@ -65,7 +65,7 @@ st.title(':rainbow[Conjugador de verbos en quechua]')
 ##seleccion de la base
 base = st.selectbox(
     'Seleccione un verbo en quechua', quechua)
-st.write('Seleccionaste ' + base + ', que en español es "' + dict_que_esp[base] + '"')
+st.write('Seleccionaste ' + base + ', que en español es "' + dict_que_esp[base] + '".')
 
 ## seleccion del tiempo
 tiempo = st.selectbox(
@@ -85,8 +85,8 @@ persona = st.selectbox(
     ':blue[Seleccione una persona gramatical en quechua]', ('primera', 'segunda', 'tercera', 'cuarta'))
 
 if numero == 'singular' and persona == 'cuarta':
-    st.write('No existe la cuarta persona (primera exclusiva) en quechua')
+    st.write('No existe la cuarta persona (primera exclusiva) en quechua.')
 else:
-    st.write('El verbo conjugado es', pronombre(tiempo, numero, persona), conjuga(base, tiempo, numero, persona))
+    st.write('El verbo conjugado es ' + pronombre(tiempo, numero, persona) + ' ' + conjuga(base, tiempo, numero, persona) + '.')
 
 
