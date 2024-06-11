@@ -64,7 +64,7 @@ st.title(':rainbow[Conjugador de verbos en quechua]')
 
 ##seleccion de la base
 base = st.selectbox(
-    'Seleccione un verbo en quechua', quechua)
+    ':pink[Seleccione un verbo en quechua]', quechua)
 st.write('Seleccionaste ' + base + ', que en español es "' + dict_que_esp[base] + '".')
 
 ## seleccion del tiempo
