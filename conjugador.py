@@ -65,7 +65,7 @@ st.markdown(
     """
     <style>
     .comic-font {
-        font-family: 'Impact', sans-serif;
+        font-family: 'Garamond', sans-serif;
     }
     </style>
     """,
