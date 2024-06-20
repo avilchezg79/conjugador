@@ -60,6 +60,23 @@ dict_que_esp = dict(zip(quechua, espanol)) ## diccionario del excel 'verbos'
 import streamlit as st
 
 ## titulo
+# Usando CSS para cambiar la fuente del título
+st.markdown(
+    """
+    <style>
+    .comic-font {
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Título con la clase CSS personalizada
+st.markdown('<h1 class="comic-font">Este es un título en Comic Sans MS</h1>', unsafe_allow_html=True)
+
+st.write("Este es un texto normal.")
+
 st.title(':rainbow[Conjugador de verbos en quechua]')
 st.write('**Juega con las distintas maneras de conjugar verbos en quechua y conoce más sobre su morfología** ✏️')
 
