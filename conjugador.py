@@ -79,7 +79,7 @@ st.write('**Juega con las distintas maneras de conjugar verbos en quechua y cono
 
 ## seleccion de la base
 base = st.selectbox(
-    ':violet[Selecciona un verbo en quechua]', quechua)
+    'Selecciona un verbo en quechua', quechua)
 st.write('Seleccionaste ' + base + ', que en español es "' + dict_que_esp[base] + '".')
 
 ## imagenes
@@ -89,7 +89,7 @@ st.image(imagen_seleccionada)
 
 ## seleccion del tiempo
 tiempo = st.selectbox(
-    ':red[Selecciona un tiempo gramatical en quechua]', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado simple', 'pasado experimentado progresivo', 'pasado experimentado habitual', 'pasado no experimentado simple', 'pasado no exp. progresivo', 'pasado no exp. habitual'))
+    'Selecciona un tiempo gramatical en quechua', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado simple', 'pasado experimentado progresivo', 'pasado experimentado habitual', 'pasado no experimentado simple', 'pasado no exp. progresivo', 'pasado no exp. habitual'))
 
 explicacion = {'presente simple': 'En el quechua, este es el tiempo no recibe una marca explícita. Por ende, aquí solo agregamos las marcas de persona a la raíz verbal.', 'presente progresivo': 'Este tiempo se emplea cuando nos referimos a eventos que están ocurriendo mientras dicha oración es pronunciada. Aquí anteponemos la marca -chka.', 'presente habitual': 'Utilizamos este tiempo cuando el evento descrito es cotidiano, es decir, cuando se realiza con cierta regularidad. Aquí añadiremos el sufijo –q al verbo principal y emplearemos el verbo ser, kay, conjugado en presente simple, a manera de auxiliar.', 'pasado experimentado simple': 'Esta forma de pasado se emplea cuando narramos hechos de los cuales hemos sido testigos directos, es decir, hechos que nos constan. Para formularlo, agregamos el sufijo -rqa a la raíz verbal.', 'pasado experimentado progresivo': 'Además de ser testigos directos de los hechos, esta forma de pasado refiere a eventos que estaban en progreso en un periodo determinado del pasado. A -rqa debemos anteponerle la marca progresiva -chka.', 'pasado experimentado habitual': 'Este tiempo refiere a los eventos pasados de los que hemos sido testigos directos. Además, se utiliza para describir hechos cotidianos, es decir, que fueron realizados con cierta regularidad. Por ello, antes de la marca -rqa, añadimos el sufijo -q al verbo principal y el verbo ser, kay, conjugado en presente simple, a manera de auxiliar.', 'pasado no experimentado simple': 'Esta forma de pasado se emplea cuando se quiere hablar de hechos de los cuales no hemos sido testigos directos, es decir hechos sobre los cuales no estamos seguros porque no nos constan. Para formularlo, agregamos el sufijo -sqa a la raíz verbal.', 'pasado no exp. progresivo': 'Además de ser testigos no directos de los hechos, esta forma de pasado refiere a eventos que estaban en progreso en un periodo determinado del pasado. A -sqa debemos anteponerle la marca progresiva -chka.', 'pasado no exp. habitual': 'Este tiempo refiere a los eventos pasados de los que no hemos sido testigos directos. Además, se utiliza para describir hechos cotidianos, es decir, que fueron realizados con cierta regularidad. Por ello, antes de la marca -sqa, añadimos el sufijo -q al verbo principal y el verbo ser, kay, conjugado en presente simple, a manera de auxiliar.'}
 
@@ -98,11 +98,11 @@ with st.popover("💭 Acerca de este tiempo gramatical"):
 
 ## seleccion del nro
 numero = st.selectbox(
-    ':green[Selecciona un numero gramatical en quechua]', ('singular', 'plural'))
+    'Selecciona un numero gramatical en quechua', ('singular', 'plural'))
 
 ## seleccion de la persona
 persona = st.selectbox(
-    ':blue[Selecciona una persona gramatical en quechua]', ('primera', 'segunda', 'tercera', 'cuarta'))
+    'Selecciona una persona gramatical en quechua', ('primera', 'segunda', 'tercera', 'cuarta'))
 
 if numero == 'singular' and persona == 'cuarta':
     st.write('No existe la cuarta persona (primera exclusiva) en quechua.')
