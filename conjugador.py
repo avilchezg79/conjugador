@@ -104,7 +104,6 @@ numero = st.selectbox(
 persona = st.selectbox(
     'Selecciona una persona gramatical en quechua', ('primera', 'segunda', 'tercera', 'cuarta'))
 
-st.button('Resultado', type="primary")
 if st.button('Resultado'):
   if numero == 'singular' and persona == 'cuarta':
       st.write('No existe la cuarta persona (primera exclusiva) en quechua.')
