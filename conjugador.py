@@ -132,6 +132,6 @@ if st.button('Resultado'):
   if numero == 'singular' and persona == 'cuarta':
       st.write('No existe la cuarta persona (primera exclusiva) en quechua.')
   else:
-      st.write('El verbo conjugado es ' + pronombre(tiempo, numero, persona) + ' ' + conjuga(base, tiempo, numero, persona) + '.')
+      st.write('El verbo conjugado es ' + conjuga(base, tiempo, numero, persona) + '.')
 
 
