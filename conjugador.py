@@ -103,6 +103,7 @@ st.markdown('<h1 class="comic-font">Conjugador de verbos en quechua</h1>', unsaf
 st.write('**Juega con las distintas maneras de conjugar verbos en quechua y conoce más sobre su morfología** ✏️')
 
 ## Selección de la base
+st.header('Raíz verbal', divider='rainbow')
 base = st.selectbox(
     'Selecciona un verbo en quechua', quechua)
 st.write('Seleccionaste ' + base + ', que en español es "' + dict_que_esp[base] + '".')
@@ -113,6 +114,7 @@ imagen_seleccionada = imagenes[base]
 st.image(imagen_seleccionada)
 
 ## Selección del tiempo
+st.header('Tiempo', divider='rainbow')
 tiempo = st.selectbox(
     'Selecciona un tiempo gramatical en quechua', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado simple', 'pasado experimentado progresivo', 'pasado experimentado habitual', 'pasado no experimentado simple', 'pasado no exp. progresivo', 'pasado no exp. habitual'))
 
@@ -122,10 +124,12 @@ with st.popover("💭 Acerca de este tiempo gramatical"):
     st.markdown(explicacion[tiempo])
 
 ## Selección del número
+st.header('Número', divider='rainbow')
 numero = st.selectbox(
     'Selecciona un numero gramatical en quechua', ('singular', 'plural'))
 
 ## Selección de la persona
+st.header('Persona', divider='rainbow')
 persona = st.selectbox(
     'Selecciona una persona gramatical en quechua', ('primera', 'segunda', 'tercera', 'cuarta'))
 
@@ -138,7 +142,11 @@ if st.button('¡Conjuga!'):
   else:
       st.write('El verbo conjugado es ' + conjuga(base, tiempo, numero, persona) + '.')
 
-## Input para colocar el mensaje
+## Conjugador inverso
+      
+st.header('Conjugador inverso', divider='rainbow')
+
+## Input
 
 input_quechua = st.text_input('Ingresa tu propia frase en quechua con la raíz verbal seleccionada (ej. pay tiyan o pay mikusqan)')
 
