@@ -1,25 +1,28 @@
 # -*- coding: utf-8 -*-
-## importar
+## Importar librerías
+
 import pandas as pd
+import streamlit as st
+
+###############################################
+###############################################
+
+## Preparación de archivos
+
+verbos = open('verbos.xlsx')
 verbos = pd.read_excel('verbos.xlsx')
-
-###############################################
-###############################################
-
-## archivo
-
+tiyay = open('tiyay.xlsx')
+tiyay = pd.read_excel('tiyay.xlsx')
 tiyay = pd.ExcelFile('tiyay.xlsx')
 
+## CONJUGADOR ##
 ## Diccionario para los pronombres
 ## Creo un ciclo for que lea solo la hoja en la que coloqué los pronombres y la convierta a diccionario
 
-P = {}
-
-for hoja in tiyay.sheet_names:
-  pf = pd.read_excel('tiyay.xlsx', sheet_name = "pronombres")
-  pf = pf.set_index(['Unnamed: 0'])
-  p = pf.to_dict()
-  P[hoja] = p
+pronombre = pd.read_excel('tiyay.xlsx', sheet_name = 'pronombres')
+col = pronombre.columns
+pronombre.set_index(col[0], inplace = True)
+dict_pronombres = pronombre.to_dict()
 
 ## Diccionario para los sufijos
 
@@ -27,40 +30,61 @@ D = {}
 
 for hoja in tiyay.sheet_names:
   df = pd.read_excel('tiyay.xlsx', sheet_name = hoja)
-  df = df.set_index(['Unnamed: 0'])
+  c = df.columns
+  df.set_index(c[0], inplace = True)
+  print(f'Hoja: {hoja}')
+  print(df.head())
+
   d = df.to_dict()
   D[hoja] = d
 
 ## Función para conjugar la base
 ## Se llegará al sufijo "abriendo" las distintas entradas en el orden según el que aparecen en el diccionario (tiempo > nro > persona)
 
-vocales = ['a', 'i', 'u']
-
 def conjuga(base, tiempo, numero, persona):
-    if base[-1] not in vocales:
-      base = base[:-1]
-    return base + D[tiempo][numero][persona]
+    return str(dict_pronombres[numero][persona]) + ' ' + base + str(D[tiempo][numero][persona])
 
-## Función para agregar el pronombre
-## Sigue la misma lógica que la función anterior
-
-def pronombre(tiempo, numero, persona):
-    return P[tiempo][numero][persona]
-
-###############################################
-###############################################
-
-## diccionario
+## Diccionario para los verbos
+  
 quechua = list(verbos['quechua'])
 espanol = list(verbos['espanol'])
 
-dict_que_esp = dict(zip(quechua, espanol)) ## diccionario del excel 'verbos'
+dict_que_esp = dict(zip(quechua, espanol))
 
-## importar streamlit
-import streamlit as st
+###############################################
+###############################################
 
-## titulo
-# Usando CSS para cambiar la fuente del título
+## CONJUGADOR INVERSO ##
+## Objetivo: Guardar todas las conjugaciones posibles en un excel
+
+tiempos = ['presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado simple', 'pasado experimentado progresivo', 'pasado experimentado habitual', 'pasado no experimentado simple', 'pasado no exp. progresivo', 'pasado no exp. habitual']
+numeros = ['singular', 'plural']
+personas = ['primera', 'segunda', 'tercera', 'cuarta']
+
+## Lista para agregar todas las combinaciones
+
+conjugaciones = []
+
+for base in quechua:
+  for tiempo in tiempos:
+    for numero in numeros:
+      for persona in personas:
+        conjugacion = conjuga(base, tiempo, numero, persona)
+        conjugaciones.append({
+                    'Raíz verbal quechua': base,
+                    'Raiz verbal español': dict(zip(quechua, espanol))[base],
+                    'Persona': persona,
+                    'Número': numero,
+                    'Tiempo': tiempo,
+                    'Conjugación': conjugacion
+                })
+
+###############################################
+###############################################
+
+## INTERFAZ EN STREAMLIT ##
+## Título usando CSS para cambiar la fuente del título
+        
 st.markdown(
     """
     <style>
