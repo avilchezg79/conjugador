@@ -15,7 +15,6 @@ tiyay = open('tiyay.xlsx')
 tiyay = pd.read_excel('tiyay.xlsx')
 tiyay = pd.ExcelFile('tiyay.xlsx')
 datos_conjugaciones = pd.read_excel('conjugaciones.xlsx')
-conjugaciones_descarga = pd.ExcelFile('conjugaciones_descarga.csv')
 
 ## CONJUGADOR ##
 ## Diccionario para los pronombres
@@ -158,10 +157,3 @@ if st.button('Información gramatical sobre tu frase'):
       st.write(f'Tiempo: {datos_tiempo}, Persona: {datos_persona}, Número: {datos_numero}')
   else:
       st.write('Prueba escribiendo el mensaje de nuevo.')
-
-st.download_button(
-  label= 'Descarga nuestra base de datos',
-  data=conjugaciones_descarga,
-  file_name='conjugaciones_descarga.csv',
-  mime='text/csv'
-)
