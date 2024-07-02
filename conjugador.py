@@ -153,8 +153,8 @@ if not Q.empty:
     datos_persona = Q['Persona'].values[0]
     datos_numero = Q['Número'].values[0]
     datos_tiempo = Q['Tiempo'].values[0]
-    print(f'Tiempo: {datos_tiempo}, Persona: {datos_persona}, Número: {datos_numero}')
+    st.write(f'Tiempo: {datos_tiempo}, Persona: {datos_persona}, Número: {datos_numero}')
 else:
-    print('Prueba escribiendo el mensaje de nuevo.')
+    st.write('Prueba escribiendo el mensaje de nuevo.')
 
 
