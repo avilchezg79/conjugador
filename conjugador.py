@@ -130,7 +130,7 @@ persona = st.selectbox(
     'Selecciona una persona gramatical en quechua', ('primera', 'segunda', 'tercera', 'cuarta'))
 
 ## Tras presionar el botón, aparecerá el resultado
-if st.button('Resultado'):
+if st.button('¡Conjuga!'):
   if numero == 'singular' and persona == 'cuarta':
       st.write('No existe la cuarta persona (primera exclusiva) en quechua.')
   if base[-1] not in ['a', 'i', 'u']:
@@ -149,12 +149,16 @@ Q = datos_conjugaciones[datos_conjugaciones['Conjugación'] == input_quechua]
 ## Si se encuentra, imprimir un mensaje con los datos gramaticales
 ## Caso contrario, se imprime otro mensaje
 
-if not Q.empty:
-    datos_persona = Q['Persona'].values[0]
-    datos_numero = Q['Número'].values[0]
-    datos_tiempo = Q['Tiempo'].values[0]
-    st.write(f'Tiempo: {datos_tiempo}, Persona: {datos_persona}, Número: {datos_numero}')
-else:
-    st.write('Prueba escribiendo el mensaje de nuevo.')
+if st.button('Información gramatical sobre tu frase'):
+  if not Q.empty:
+      datos_persona = Q['Persona'].values[0]
+      datos_numero = Q['Número'].values[0]
+      datos_tiempo = Q['Tiempo'].values[0]
+      st.write(f'Tiempo: {datos_tiempo}, Persona: {datos_persona}, Número: {datos_numero}')
+  else:
+      st.write('Prueba escribiendo el mensaje de nuevo.')
+
+with open('conjugaciones_descarga.csv') as f:
+   st.download_button('Descarga nuestra base de datos', f)
 
 
