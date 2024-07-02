@@ -158,7 +158,5 @@ if st.button('Información gramatical sobre tu frase'):
   else:
       st.write('Prueba escribiendo el mensaje de nuevo.')
 
-with open('conjugaciones_descarga.csv') as f:
-   st.download_button('Descarga nuestra base de datos', f)
 
 
