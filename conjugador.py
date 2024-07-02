@@ -84,36 +84,27 @@ for base in quechua:
 ###############################################
 
 ## INTERFAZ EN STREAMLIT ##
-## Título usando CSS para cambiar la fuente del título
-        
-st.markdown(
-    """
-    <style>
-    .comic-font {
-        font-family: 'Garamond', sans-serif;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # Título con la clase CSS personalizada
-st.markdown('<h1 class="comic-font">Conjugador de verbos en quechua</h1>', unsafe_allow_html=True)
+
+st.title('Conjugador de verbos en quechua')
 
 st.write('**Juega con las distintas maneras de conjugar verbos en quechua y conoce más sobre su morfología** ✏️')
 
 ## Selección de la base
+
 st.header('Raíz verbal', divider='rainbow')
 base = st.selectbox(
     'Selecciona un verbo en quechua', quechua)
 st.write('Seleccionaste ' + base + ', que en español es "' + dict_que_esp[base] + '".')
 
 ## Imágenes que aparecen al seleccionar la base
+
 imagenes = {'tiyay': 'tiyay.jpg', 'mikuy': 'mikuy.jpg', 'puri': 'puri.jpg', 'tusuy': 'tusuy.jpg'}
 imagen_seleccionada = imagenes[base]
 st.image(imagen_seleccionada)
 
 ## Selección del tiempo
+
 st.header('Tiempo', divider='rainbow')
 tiempo = st.selectbox(
     'Selecciona un tiempo gramatical en quechua', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado simple', 'pasado experimentado progresivo', 'pasado experimentado habitual', 'pasado no experimentado simple', 'pasado no exp. progresivo', 'pasado no exp. habitual'))
@@ -124,16 +115,19 @@ with st.popover("💭 Acerca de este tiempo gramatical"):
     st.markdown(explicacion[tiempo])
 
 ## Selección del número
+
 st.header('Número', divider='rainbow')
 numero = st.selectbox(
     'Selecciona un número gramatical en quechua', ('singular', 'plural'))
 
 ## Selección de la persona
+
 st.header('Persona', divider='rainbow')
 persona = st.selectbox(
     'Selecciona una persona gramatical en quechua', ('primera', 'segunda', 'tercera', 'cuarta'))
 
 ## Tras presionar el botón, aparecerá el resultado
+
 if st.button('¡Conjuga!'):
   if numero == 'singular' and persona == 'cuarta':
       st.write('No existe la cuarta persona (primera exclusiva) en quechua.')
