@@ -126,7 +126,7 @@ with st.popover("💭 Acerca de este tiempo gramatical"):
 ## Selección del número
 st.header('Número', divider='rainbow')
 numero = st.selectbox(
-    'Selecciona un numero gramatical en quechua', ('singular', 'plural'))
+    'Selecciona un número gramatical en quechua', ('singular', 'plural'))
 
 ## Selección de la persona
 st.header('Persona', divider='rainbow')
