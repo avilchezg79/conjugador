@@ -149,7 +149,7 @@ Q = datos_conjugaciones[datos_conjugaciones['Conjugación'] == input_quechua]
 ## Si se encuentra, imprimir un mensaje con los datos gramaticales
 ## Caso contrario, se imprime otro mensaje
 
-if st.button('Información gramatical sobre tu frase'):
+if st.button('Información gramatical sobre tu frase (ej. pay tiyan o pay mikusqan)'):
   if not Q.empty:
       datos_persona = Q['Persona'].values[0]
       datos_numero = Q['Número'].values[0]
