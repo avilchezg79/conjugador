@@ -137,4 +137,10 @@ if st.button('Resultado'):
   else:
       st.write('El verbo conjugado es ' + conjuga(base, tiempo, numero, persona) + '.')
 
+st.text_input(
+        'Ingresa tu propia frase en quechua con la raíz verbal seleccionada',
+        'Tu texto aquí',
+        key="placeholder",
+        )
+
 
