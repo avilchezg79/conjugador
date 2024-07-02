@@ -14,6 +14,7 @@ verbos = pd.read_excel('verbos.xlsx')
 tiyay = open('tiyay.xlsx')
 tiyay = pd.read_excel('tiyay.xlsx')
 tiyay = pd.ExcelFile('tiyay.xlsx')
+datos_conjugaciones = pd.read_excel('conjugaciones.xlsx')
 
 ## CONJUGADOR ##
 ## Diccionario para los pronombres
@@ -137,6 +138,23 @@ if st.button('Resultado'):
   else:
       st.write('El verbo conjugado es ' + conjuga(base, tiempo, numero, persona) + '.')
 
-st.text_input('Ingresa tu propia frase en quechua con la raíz verbal seleccionada')
+## Input para colocar el mensaje
+
+input_quechua = st.text_input('Ingresa tu propia frase en quechua con la raíz verbal seleccionada')
+
+## Buscar el input en el Excel
+
+Q = datos_conjugaciones[datos_conjugaciones['Conjugación'] == input_quechua]
+
+## Si se encuentra, imprimir un mensaje con los datos gramaticales
+## Caso contrario, se imprime otro mensaje
+
+if not Q.empty:
+    datos_persona = Q['Persona'].values[0]
+    datos_numero = Q['Número'].values[0]
+    datos_tiempo = Q['Tiempo'].values[0]
+    print(f'Tiempo: {datos_tiempo}, Persona: {datos_persona}, Número: {datos_numero}')
+else:
+    print('Prueba escribiendo el mensaje de nuevo.')
 
 
