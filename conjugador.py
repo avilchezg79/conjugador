@@ -101,17 +101,17 @@ st.markdown('<h1 class="comic-font">Conjugador de verbos en quechua</h1>', unsaf
 
 st.write('**Juega con las distintas maneras de conjugar verbos en quechua y conoce más sobre su morfología** ✏️')
 
-## seleccion de la base
+## Selección de la base
 base = st.selectbox(
     'Selecciona un verbo en quechua', quechua)
 st.write('Seleccionaste ' + base + ', que en español es "' + dict_que_esp[base] + '".')
 
-## imagenes
+## Imágenes que aparecen al seleccionar la base
 imagenes = {'tiyay': 'tiyay.jpg', 'mikuy': 'mikuy.jpg', 'puri': 'puri.jpg', 'tusuy': 'tusuy.jpg'}
 imagen_seleccionada = imagenes[base]
 st.image(imagen_seleccionada)
 
-## seleccion del tiempo
+## Selección del tiempo
 tiempo = st.selectbox(
     'Selecciona un tiempo gramatical en quechua', ('presente simple', 'presente progresivo', 'presente habitual', 'pasado experimentado simple', 'pasado experimentado progresivo', 'pasado experimentado habitual', 'pasado no experimentado simple', 'pasado no exp. progresivo', 'pasado no exp. habitual'))
 
@@ -120,17 +120,20 @@ explicacion = {'presente simple': 'En el quechua, este es el tiempo no recibe un
 with st.popover("💭 Acerca de este tiempo gramatical"):
     st.markdown(explicacion[tiempo])
 
-## seleccion del nro
+## Selección del número
 numero = st.selectbox(
     'Selecciona un numero gramatical en quechua', ('singular', 'plural'))
 
-## seleccion de la persona
+## Selección de la persona
 persona = st.selectbox(
     'Selecciona una persona gramatical en quechua', ('primera', 'segunda', 'tercera', 'cuarta'))
 
+## Tras presionar el botón, aparecerá el resultado
 if st.button('Resultado'):
   if numero == 'singular' and persona == 'cuarta':
       st.write('No existe la cuarta persona (primera exclusiva) en quechua.')
+  if base[-1] not in ['a', 'i', 'u']:
+      st.write('El verbo conjugado es ' + conjuga(base[:-1], tiempo, numero, persona) + '.')
   else:
       st.write('El verbo conjugado es ' + conjuga(base, tiempo, numero, persona) + '.')
 
