@@ -158,5 +158,13 @@ if st.button('Información gramatical sobre tu frase'):
   else:
       st.write('Prueba escribiendo el mensaje de nuevo.')
 
+def convertir_a_csv(df):
+  return df.to_csv(index=False)
 
-
+csv = convertir_a_csv(datos_conjugaciones)
+st.download_button(
+  label= 'Descarga nuestra base de datos',
+  data=csv,
+  file_name='conjugaciones_descarga.csv',
+  mime='text/csv'
+)
